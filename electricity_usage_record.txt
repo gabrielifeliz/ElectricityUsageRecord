@@ -1,0 +1,56 @@
+An electricity supply authority records on an electricity 
+ usage file the amount of electricity that each customer uses.
+
+This file consists of:
+* a header record (first record), which provides the total kilowatt hours 
+ used during the month by all customers
+* a number of detail records, each containing the customer number, 
+ customer name and electricity usage (in kilowatt hours) for the month.
+
+Design a solution algorithm that will read the electricity usage file 
+and produce an electricity usage report showing the customer number, 
+customer name, electricity usage and the amount owing. 
+The amount owing is calculated at 11 cents for each kilowatt hour used, 
+up to 200 hours, and 8 cents for each kilowatt hour used over 200 hours.
+
+The report should also display the total electricity usage in kilowatt hours.
+--------------------------------------------------------------------------------
+
+INPUTS
+customer_number
+customer_name
+kilowatt_hours_used
+
+PROCESSING STEPS/ALGORITHM
+Print Electricity Usage Report heading
+Read electricity usage file
+Calculate amount owing for each student based on kilowatt_hours_used
+
+OUTPUTS
+Electricity Usage Report heading
+customer_number
+customer_name
+kilowatt_hours_used
+amount_owing
+total_kilowatt_hours_used
+
+
+PSEUDOCODE
+Print_Electricity_Usage_Report
+Print "Electricity Usage Report" heading
+    Read electricity usage file
+	DOWHILE morerecords exist
+		IF kilowatt_hours_used <= 200 
+			Calculate amount_owing = kilowatt_hours_used * 0.11
+		ELSE
+			Calculate amount_owing = (200 * 0.11) + ((kilowatt_hours_used - 200) * 0.08)
+		ENDIF
+        
+		Print customer_number, customer_name, 
+		 kilowatt_hours_used, amount_owing
+		Read electricity usage file
+    ENDDO
+	
+	Print "Total Electricity Usage" sub-heading
+	Print total_kilowatt_hours_used
+END
